@@ -79,31 +79,7 @@ rect:hover{
 }
 
 
-#add{
-	display: flex;
-    margin-left: 5%;
-    align-items:center;
-}
-
-.sort{
-	width: 60%;
-    height: 50%;
-}
-
-.sort-link{
-	display:flex;
-}
-
-#sort-container{
-    display: flex;
-    margin-left: 27%;
-    width: 100%;
-    align-items: center;
-}
-
-#sort-container a:first-child{
-    margin-left: 40%;
-}
+v
 
 h4{
     font-style: italic;

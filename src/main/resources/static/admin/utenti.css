@@ -31,6 +31,7 @@ nav{
 	display: flex;
     margin-left: 5%;
     align-items:center;
+    width: 100%;
 }
 
 .sort{
@@ -49,7 +50,7 @@ nav{
     align-items: center;
 }
 
-#sort-container a:first-child{
+#sort-container a:first-child img{
     margin-left: 40%;
 }
 
