@@ -1,7 +1,5 @@
 package com.example.demo.model;
 
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -35,7 +33,7 @@ public class Buffet {
 	private List<Piatto> piatti;
 	
 	public Buffet() {
-		this.piatti = new LinkedList<Piatto>();
+		
 	}
 
 	public Buffet(String nome, String descrizione, Chef chef, String img, List<Piatto> piatti, float media) {
