@@ -49,6 +49,13 @@ public class IngredienteService {
 		return this.ingredienteRepository.existsByNomeAndDescrizioneAndOrigine(ingrediente.getNome(), ingrediente.getDescrizione(), ingrediente.getOrigine());
 	}
 	
+	public List<Ingrediente> findAllOrderByNomeAsc() {
+		return this.ingredienteRepository.findAllByOrderByNomeAsc();
+	}
+	
+	public List<Ingrediente> findAllOrderByNomeDesc() {
+		return this.ingredienteRepository.findAllByOrderByNomeDesc();
+	}
 
 	
 	

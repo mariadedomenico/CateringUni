@@ -55,4 +55,12 @@ public class PiattoService {
 	public Long countByNomeAndDescrizione(String nome, String descrizione) {
 		return this.piattoRepository.countByNomeAndDescrizione(nome, descrizione);
 	}
+
+	public List<Piatto> findAllOrderByNomeAsc() {
+		return this.piattoRepository.findAllByOrderByNomeAsc();
+	}
+	
+	public List<Piatto> findAllOrderByNomeDesc() {
+		return this.piattoRepository.findAllByOrderByNomeDesc();
+	}
 }

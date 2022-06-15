@@ -109,4 +109,17 @@ public class ChefController {
 	    return "admin/chefsAdmin.html";
 	}
 
+	@GetMapping("/admin/sortChef")
+	public String sortChef(Model model){
+		 model.addAttribute("chefsAdmin", this.chefService.findAllOrderByNomeAsc());
+		
+		return "admin/chefsAdmin.html";
+	}
+	
+	@GetMapping("/admin/reverseChef")
+	public String reverseChef(Model model){
+		model.addAttribute("chefsAdmin", this.chefService.findAllOrderByNomeDesc());
+		return "admin/chefsAdmin.html";
+	}
+
 }

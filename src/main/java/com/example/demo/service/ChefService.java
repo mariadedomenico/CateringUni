@@ -52,5 +52,13 @@ public class ChefService {
 		return this.chefRepository.existsByNomeAndCognomeAndNazionalita(chef.getNome(), chef.getCognome(), chef.getNazionalita());
 	}
 
+	public List<Chef> findAllOrderByNomeAsc() {
+		return this.chefRepository.findAllByOrderByNomeAsc();
+	}
+	
+	public List<Chef> findAllOrderByNomeDesc() {
+		return this.chefRepository.findAllByOrderByNomeDesc();
+	}
+
 	
 }

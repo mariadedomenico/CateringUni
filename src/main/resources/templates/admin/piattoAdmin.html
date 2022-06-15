@@ -26,6 +26,11 @@
 		        </svg>
 		       Aggiungi
 		   </a>
+		   <div id="sort-container">
+				<h4>Sorted by: </h4>
+		   		<a class='sort-link' th:href='@{/admin/sortPiatto}'><img class='sort' src="/admin/asc.png"/></a>
+		   		<a class='sort-link' th:href='@{/admin/reversePiatto}'><img class='sort' src="/admin/desc.png"/></a>
+			</div>
 		</div>
 		
 		<div id="myModal" class="modal">

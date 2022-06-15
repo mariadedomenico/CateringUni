@@ -20,12 +20,17 @@
 	
 	<div id='title'>
 		<div id='add'>
-		   <a class="btn-chef">
+		   <a th:href='@{/admin/chefForm}' class="btn-chef">
 		        <svg>
 		          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
 		        </svg>
 		       Aggiungi
 		   </a>
+		   <div id="sort-container">
+				<h4>Sorted by: </h4>
+		   		<a class='sort-link' th:href='@{/admin/sortChef}'><img class='sort' src="/admin/asc.png"/></a>
+		   		<a class='sort-link' th:href='@{/admin/reverseChef}'><img class='sort' src="/admin/desc.png"/></a>
+			</div>
 		</div>
 		
 		<div id="myModal" class="modal">

@@ -49,5 +49,13 @@ public class UtenteService {
 	public Utente[] findAllByEmail(String email) {
 		return utenteRepository.findAllByEmail(email);
 	}
+
+	public List<Utente> findAllOrderByEmailAsc() {
+		return this.utenteRepository.findAllByOrderByEmailAsc();
+	}
+	
+	public List<Utente> findAllOrderByNomeDesc() {
+		return this.utenteRepository.findAllByOrderByEmailDesc();
+	}
 	
 }

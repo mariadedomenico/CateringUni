@@ -123,6 +123,20 @@ public class IngredienteController {
         }
 
     }
+
+	@GetMapping("/admin/sortIngrediente")
+	public String sortBuffet(Model model){
+		
+		model.addAttribute("ingredientiAdmin", this.ingredienteService.findAllOrderByNomeAsc());
+		return "admin/ingredientiAdmin.html";
+	}
+	
+	@GetMapping("/admin/reverseIngrediente")
+	public String reverseBuffet(Model model){
+		
+		model.addAttribute("ingredientiAdmin", this.ingredienteService.findAllOrderByNomeDesc());
+		return "admin/ingredientiAdmin.html";
+	}
 	
 
 }

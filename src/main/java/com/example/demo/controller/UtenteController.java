@@ -84,6 +84,20 @@ public class UtenteController {
 
 	}
 	
+	@GetMapping("/admin/sortUtente")
+	public String sortUtente(Model model){
+		
+		model.addAttribute("utenti", this.utenteService.findAllOrderByEmailAsc());
+		return "admin/utentiAdmin.html";
+	}
+	
+	@GetMapping("/admin/reverseUtente")
+	public String reverseUtente(Model model){
+	
+		model.addAttribute("utenti", this.utenteService.findAllOrderByEmailDesc());
+		
+		return "admin/utentiAdmin.html";
+	}
 	
 	
 

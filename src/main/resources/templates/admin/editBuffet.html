@@ -20,14 +20,18 @@
 	
 	<div id='title'>
 		<div id='add'>
-		   <a class="btn-buffet">
+		   <a th:href='@{/admin/buffetForm}' class="btn-buffet">
 		        <svg>
 		          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
 		        </svg>
 		       Aggiungi
 		   </a>
+		   <div id="sort-container">
+				<h4>Sorted by: </h4>
+		   		<a class='sort-link' th:href='@{/admin/sort}'><img class='sort' src="/admin/asc.png"/></a>
+		   		<a class='sort-link' th:href='@{/admin/reverse}'><img class='sort' src="/admin/desc.png"/></a>
+			</div>
 		</div>
-		
 		<div id="myModal" class="modal">
 
   <!-- Modal content -->

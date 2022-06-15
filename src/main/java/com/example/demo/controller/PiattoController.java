@@ -179,4 +179,18 @@ public class PiattoController {
 
 	}
 
+	@GetMapping("/admin/sortPiatto")
+	public String sortBuffet(Model model){
+		
+		model.addAttribute("piattiAdmin", this.piattoService.findAllOrderByNomeAsc());
+		return "admin/piattiAdmin.html";
+	}
+	
+	@GetMapping("/admin/reversePiatto")
+	public String reverseBuffet(Model model){
+		model.addAttribute("piattiAdmin", this.piattoService.findAllOrderByNomeDesc());
+		return "admin/piattiAdmin.html";
+
+	}
+
 }
