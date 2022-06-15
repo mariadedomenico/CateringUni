@@ -259,3 +259,9 @@ fieldset {
     border-radius: 10px;
 }
 
+#title{
+	display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}

@@ -174,3 +174,10 @@ p{
 #logout {
 	width: 50%;
 }
+
+#title{
+	display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
