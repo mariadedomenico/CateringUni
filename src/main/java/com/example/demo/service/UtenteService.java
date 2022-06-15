@@ -54,7 +54,7 @@ public class UtenteService {
 		return this.utenteRepository.findAllByOrderByEmailAsc();
 	}
 	
-	public List<Utente> findAllOrderByNomeDesc() {
+	public List<Utente> findAllOrderByEmailDesc() {
 		return this.utenteRepository.findAllByOrderByEmailDesc();
 	}
 	
