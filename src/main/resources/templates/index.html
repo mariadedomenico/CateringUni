@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/css/index.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+	<div class='btn-container'>
+    	<div class='index-container'>
+            <a th:href="@{/user/home}" class="btn-index" style="margin-top: 8%;">
+                <svg>
+                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                </svg>
+               Entra nel sito
+            </a>
+      </div>
+      <div class='index-container'>
+            <a th:href="@{/login}" class="btn-index" style="margin-top: 8%;">
+                <svg>
+                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                </svg>
+               Login
+            </a>
+      </div>
+   </div>
+
+</body>
+</html>

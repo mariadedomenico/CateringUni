@@ -1,0 +1,256 @@
+    
+    
+    body {
+        background-color: #FBE3D4;
+    }
+
+    
+
+    .title {
+        margin-top: 2%;
+        font-size: 20px;
+        color: #FBE3D4;
+    }
+
+    header {
+        height: 350px;
+        /* background-color: maroon; */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        background-image: url("/images/sfondo.jpg");
+    }
+
+    nav {
+        position: relative;
+        width: 90%;
+        height: 50px;
+        background-color: darksalmon;
+        border-radius: 8px;
+        margin-top: 2%;
+        
+    }
+
+
+    
+    a {
+        text-decoration: none;
+      }
+      
+      /* nav {
+        font-family: monospace;
+      } */
+      #chef {
+          background-color: #FBE3D4 !important;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        /* background: darksalmon; */
+      }
+      
+      .li-navbar {
+        color: #fff;
+        /* background: darksalmon; */
+        display: flex;
+        float: left;
+        padding: 1rem;
+        position: relative;
+        text-decoration: none;
+        transition-duration: 0.5s;
+        width: 25% ;
+        justify-content: center;
+        flex-direction: row;
+        padding-right: 0;
+        padding-left: 0;
+        border-radius: 8px;
+        justify-content: space-evenly;
+      }
+    
+
+      li a {
+        color: black;
+      }
+      
+      .li-navbar:hover,
+      .li-navbar :focus-within {
+        background: #FBE3D4;
+        cursor: pointer;
+                
+    }
+      .li-navbar:focus-within a {
+        outline: none;
+      }
+      
+      ul li ul {
+        background-color: darksalmon; 
+        visibility: hidden;
+        opacity: 0;
+        width: 100%;
+        position: absolute;
+        transition: all 0.5s ease;
+        margin-top: 10.5%;
+        left: 0;
+        display: none;
+        border-radius: 8px;
+      }
+      
+      ul li:hover > ul,
+      ul li:focus-within > ul,
+      ul li ul:hover,
+      ul li ul:focus {
+        visibility: visible;
+        opacity: 1;
+        display: block
+
+      }
+      
+      ul li ul li {
+        clear: both;
+        width: 100% !important;
+      }
+
+
+      svg {
+        height: 45px;
+        left: 0;
+        position: absolute;
+        top: 0; 
+        width: 100%; 
+      }
+      
+      rect {
+        fill: #FBE3D4;
+        stroke: black;
+        stroke-width: 5;
+        stroke-dasharray: 422, 0;
+        transition: all 0.35s linear;
+        opacity: 40%;
+      }
+
+      
+    rect:hover{
+          stroke-width: 5;
+          stroke-dasharray: 15, 310;
+          stroke-dashoffset: 48;
+          transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+
+      
+      footer{
+          background-image: url("/images/sfondo.jpg");
+          background-position: center bottom;
+          height: 350px;
+          margin-top: 5%;
+          background-position-x: 0% ;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+      }
+
+      table {
+        border-collapse: collapse;
+        color: #FBE3D4;
+        width: 140%;
+      }
+
+      
+      
+      td, th {
+        border: 2px solid #FBE3D4;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr {
+        background-color: black;
+        opacity: 40%;
+      }
+
+      .table-box{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-right: 5%;
+      }
+
+      .info-box{
+          display: flex;
+          align-items: center;
+          color: #FBE3D4;
+          margin-bottom: 5%;
+      }
+
+      .info{
+          margin-left: 5% ;
+      }
+
+      #info-title{
+          color: #FBE3D4;
+          margin-bottom: 5%;
+      }
+
+      .info-img {
+          width: 18%;
+          margin-right: 5%;
+      }
+
+      .chef-info{
+          display: flex;
+    justify-content: space-evenly;
+    margin-top: 5%;
+      }
+
+      .chef-img{
+        width: 372.95px;
+        height: 250.55px;
+        margin-bottom: 5%;
+        margin-top: 5%
+      }
+
+    .chef-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        border: solid;
+        font-style: italic;
+        border-radius:10px;
+    }
+
+    .btn-chef {
+        margin-bottom: 5%;
+        position: relative;
+        /* background-color: #FBE3D4; */
+        color: black;
+        font-size: 10px;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 21px;
+        font-style: oblique;
+        font-weight: 900;
+ 
+    }
+
+    .btn-chef:hover{
+        font-weight: 900;
+        letter-spacing: 1px;
+      }
+      
+      .li-chef {
+        color: black;
+        /* background: darksalmon; */
+        border-radius: 8px;
+        justify-content: space-evenly;
+      }
+      
+      span {
+		margin-top:5%;
+}

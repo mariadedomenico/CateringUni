@@ -1,0 +1,85 @@
+
+
+
+
+img {
+    height: 20%;
+}
+
+body {
+    background-color: #FBE3D4;
+    font-family: "Gilroy-Bold",sans-serif;
+    padding: 5%;
+    margin: 0;
+    padding-top: 2%;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 5%;
+}
+
+h2{
+	text-align: center;
+    margin-bottom: 3%;
+}
+
+#login_wrapper {
+    display: flex;
+    width: 70%;
+    min-height: auto;
+    flex-direction: row;
+    margin: auto;
+    height: 95%;
+}
+
+#image_wrapper {
+    position: relative;
+    display: block;
+    width: 50%;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    background-position: 0 0;
+    background-image: url("/images/admin-buffet.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#form_wrapper {
+    flex-direction: column;
+    margin-top: 0;
+    background-color: #0d0d0d;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    padding: 0px;
+    display: flex;
+    width: 50%;
+    justify-content: center;
+}
+
+#form {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-content: center;
+}
+
+.input_form {
+    margin-bottom: 10%;
+}
+
+      
+
+input {
+    width: 250px;
+    height: 30px;
+    margin-bottom: 5%;
+}
+
+
+#login-btn{
+	text-align: center;
+}
+     

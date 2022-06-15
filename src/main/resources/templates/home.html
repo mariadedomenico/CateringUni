@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/css/home.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+    <header>
+        <div class="title"> CATERING ROMA</div>
+        <!-- <nav>
+            <a href="#">Home</a>
+            <a href="#">Chef</a>
+            <a href="#">Buffet</a>
+            <a href="#">Contatti</a>
+            
+        </nav> -->
+
+        
+        <nav role="navigation">
+            <ul>
+              <li id="home"><a th:href="@{'/user/home'}">HOME</a></li>
+              <li><a th:href="@{'/user/buffets'}">BUFFET</a>
+                <ul>
+					<li th:each="buffet : ${buffets}">
+					<a th:href="@{'/user/buffet' + '/' + ${buffet.id}}"
+					th:text="${buffet.nome}">Buffet</a>
+					</li>
+				</ul>
+              </li>
+              <li><a th:href="@{'/user/chefs'}">CHEF</a>
+                 <ul class='dropdown'>
+					<li class='li-navbar' th:each="chef : ${chefs}">
+					<a th:href="@{'/user/chef' + '/' + ${chef.id}}"
+					th:text="${chef.nome} + ' ' + ${chef.cognome}">Chef</a>
+					</li>
+				</ul>
+              </li>
+              <li><a th:href="@{'/user/contatti'}">CONTATTI</a>
+              </li>
+              <!-- <div class="animation start-home"></div> -->
+            </ul>
+            
+          </nav>
+        
+    </header>
+    
+    <div class="slider">
+        <span id="slide-1"></span>
+        <span id="slide-2"></span>
+        <span id="slide-3"></span>
+        <div class="image-container">
+            <div class="container">
+                <img src="/images/buffet.jpg" class="slide" width="750" height="450" />
+                <a th:href="@{'/user/buffets'}" class="btn">
+                    <svg>
+                      <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                    </svg>
+                   Scopri di più
+                </a>
+            </div> 
+            <div class="container">
+                <img src="/images/chef.jpg" class="slide" width="750" height="450" />
+                <a th:href="@{'/user/chefs'}" class="btn">
+                    <svg>
+                      <rect x="0" y="0" width="100%" height="100%"/>
+                    </svg>
+                   Scopri di più
+                </a>
+            </div> 
+            <div class="container">
+                <img src="/images/piatto.jpg" class="slide" width="750" height="450" />
+                <a th:href="@{'/user/contatti'}" class="btn">
+                    <svg>
+                      <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                    </svg>
+                   Scopri di più
+                </a>
+            </div> 
+        </div>
+        <div class="buttons">
+          <a href="#slide-1"></a>
+          <a href="#slide-2"></a>
+          <a href="#slide-3"></a>
+        </div>
+      </div>
+
+      <div class="box-container">
+        <div class="box">
+            <p> LE NOSTRE PROPOSTE </p>
+            <img src="/images/proposte.jpg" width="90%"/>
+            <div class="proposte">
+                Proponiamo una cucina tradizionale, fatta di sapori italiani ed ispirata dalla genuinità dei prodotti. Realizziamo menù adatti a qualsiasi tipo di evento, li studiamo con il cliente e li personalizziamo in base alle sue esigenze. Le nostre proposte sono interamente componibili ed integrabili con il resto dei nostri servizi, così da offrire un catering di qualità, garantendo un risultato impeccabile e di sicuro successo.
+            </div>
+            <a th:href="@{'/user/buffets'}" class="btn-proposte" style="margin-top: 8%;">
+                <svg>
+                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                </svg>
+               Scopri di più
+            </a>
+        </div>
+        <div class="box">
+            <p> I NOSTRI CHEF </p>
+            <img src="/images/proposte_chef.jpeg" width="90%"/>
+            <div class="proposte">
+                La nostra passione ed affidabilità, ci permette di offrirti una vasta scelta di servizi integrati. Il nostro Staff ti saprà consigliare sempre con competenza, suggerendoti le soluzioni più creative, con la possibilità di realizzare idee originali insieme ai nostri partner. Ogni allestimento sarà studiato e curato nel particolare, per garantire l’eccellenza dello stile richiesto
+            </div>
+            <a th:href="@{'/user/chefs'}" class="btn-proposte" style="margin-top: 11.5%;">
+                <svg>
+                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                </svg>
+               Scopri di più
+            </a>
+        </div>
+        <div class="box">
+            <p> CHI SIAMO </p>
+            <img src="/images/chi_siamo.jpg" width="90%"/>
+            <div class="proposte">
+                La nostra professionalità è messa al tuo servizio, per seguirti e consigliarti nella scelta di ogni minimo particolare, con la cura e l’attenzione che ogni evento, piccolo o grande che sia, richiede. Ti aiuteremo a vivere momenti indimenticabili, per te ed i tuoi ospiti.
+                La qualità del nostro servizio insieme alla cortesia ed alla competenza del nostro staff, saranno la nostra garanzia per la buona riuscita del tuo evento.
+            </div>
+            <a th:href="@{'/user/contatti'}" class="btn-proposte" style="margin-top: 8%;">
+                <svg>
+                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+                </svg>
+               Scopri di più
+            </a>
+        </div>
+      </div>
+
+      <footer>
+        <div class="info">
+            <div id="info-title">INFORMAZIONI</div>
+            <div class="info-box">
+                <img class="info-img" src="/images/email.png">
+                <div>info@catering.com</div>
+            </div>
+            <div class="info-box">
+                <img class="info-img" src="/images/phone.png">
+                <div>3277834261</div>
+            </div>
+            <div class="info-box">
+                <img class="info-img" src="/images/address.png">
+                <div>Via Catering 70, Roma</div>
+            </div>
+        </div>
+
+
+        <div class="table-box">
+            <table>
+            <tr>
+              <th>ORARI</th>
+            </tr>
+            <tr>
+              <td>Lunedì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Martedì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Mercoledì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Giovedì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Venerdì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Sabato</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+                <td>Domenica</td>
+                <td>09:00-14:00</td>
+            </tr>
+          </table>
+        </div>
+        
+      </footer>
+
+</body>
+</html>

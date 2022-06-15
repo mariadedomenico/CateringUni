@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/admin/home.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+
+	<nav> 
+		<a id='home' th:href="@{/admin/homeAdmin}">Home</a>
+	    <a th:href="@{/admin/buffets}">Buffets</a>
+	    <a th:href="@{/admin/chefs}">Chefs</a>
+	    <a th:href="@{/admin/piatti}">Piatti</a>
+	    <a th:href="@{/admin/ingredienti}">Ingredienti</a>
+	    <a th:href="@{/admin/utenti}">Utenti</a>
+	    <a th:href="@{/admin/logout}"><img id='logout' src='/admin/logout.png'></a>
+	</nav>
+
+	<h1>BENVENUTO!</h1>
+	<div id='categoria-container'>
+	
+		<div class="categoria-info">
+			
+			<div class="categoria-box" id='buffet'>
+		    	<div class='categoria-title'>BUFFETS</div>
+		    	
+			    	<a th:href="@{'/admin/buffets'}" class="btn-categoria" style="margin-top: 8%;">
+			        <svg>
+			          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			        </svg>
+			       		Accedi
+			    	</a>
+		    	
+		 	</div>
+		    <div class="categoria-box" id='chef'>
+		    	<div class='categoria-title'>CHEFS</div>
+		    	<a th:href="@{'/admin/chefs'}" class="btn-categoria" style="margin-top: 8%;">
+		        <svg>
+		          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+		        </svg>
+		       		Accedi
+		    	</a>
+		 	</div>
+		</div>
+		
+		<div class="categoria-info">
+		
+			<div class="categoria-box"id='piatto' >
+		    	<div>PIATTI</div>
+			    	<a th:href="@{'/admin/piatti'}" class="btn-categoria" style="margin-top: 8%;">
+			        <svg>
+			          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			        </svg>
+			       		Accedi
+			    	</a>
+		 		</div>
+
+			<div class="categoria-box" id='ingrediente'>
+		    	<div>INGREDIENTI</div>
+			    	<a th:href="@{'/admin/ingredienti'}" class="btn-categoria" style="margin-top: 8%;">
+			        <svg>
+			          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			        </svg>
+			       		Accedi
+			    	</a>
+			</div>
+		</div>
+		 
+		<div class='categoria-info'>
+				
+			<div class="categoria-box" id='utente'>
+		    	<div class='categoria-title'>UTENTI</div>
+		    	<a th:href="@{'/admin/utenti'}" class="btn-categoria" style="margin-top: 8%;">
+		        <svg>
+		          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+		        </svg>
+		       		Accedi
+		    	</a>
+		 	</div>
+		 	
+		</div>
+			
+	</div>
+</body>
+</html>

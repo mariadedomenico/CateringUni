@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" href="/css/login.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>    
+    <body>
+        
+        <h2>Accesso Area Riservata Amministrazione</h2>
+        <div id="login_wrapper">
+            <div id="image_wrapper">
+
+            </div>
+            <div id="form_wrapper">
+                <h1>Accedi al tuo account</h1>
+                <div id="form">
+                    <form th:action="@{/login}" method="POST">
+						<div>
+							<div>
+								
+								<span><input name="username" type="text" placeholder="username..." required /></span>
+							</div>		
+							<div>
+								
+								<span><input name="password" type="password" placeholder="password..." required /></span>
+							</div>
+							<div id='login-btn'>
+								<span><button type="submit">Login</button></span>
+							</div>
+							<!--  <div><a th:href="@{/register}" th:text='Registrati'></a></div> -->
+						</div>
+					</form>
+                </div>
+            </div>
+        </div>
+
+       
+    </body>
+</html>

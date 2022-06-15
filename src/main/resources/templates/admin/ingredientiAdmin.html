@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/admin/ingredienti.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+
+	<nav> 
+		<a th:href="@{/admin/homeAdmin}">Home</a>
+	    <a th:href="@{/admin/buffets}">Buffets</a>
+	    <a th:href="@{/admin/chefs}">Chefs</a>
+	    <a th:href="@{/admin/piatti}">Piatti</a>
+	    <a id='ingrediente' th:href="@{/admin/ingredienti}">Ingredienti</a>
+	    <a th:href="@{/admin/utenti}">Utenti</a>
+	    <a th:href="@{/admin/logout}"><img id='logout' src='/admin/logout.png'></a>
+	</nav>
+	<div id='title'>
+		<div id='add'>
+		   <a th:href="@{'/admin/ingredienteForm'}" class="btn-ingrediente">
+		        <svg>
+		          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+		        </svg>
+		       Aggiungi
+		   </a>
+		</div>
+		
+	    <h1>INGREDIENTI:</h1>
+	</div>
+    
+     <ul>
+		<li th:each="ingrediente : ${ingredientiAdmin}">
+        		<div class="ingrediente-box" >
+        			<div id='info'>
+        				<div class="tooltip"> <img src="/admin/info.png"/>
+  						<div class="tooltiptext">
+		            		
+		            		<div><span>Descrizione: </span><span th:text="${ingrediente.descrizione}"></span></div>
+		            		<div><span>Origine: </span><span th:text="${ingrediente.origine}"></span></div>
+						</div>
+					</div>
+		            <span th:text="${ingrediente.nome}"></span>
+        			</div>
+        			
+		            <!--<img class="buffet-img" th:src="${buffet.img}">
+		            <span th:text="${buffet.descrizione}"></span>-->
+		            <div id='btn-wrapper'>
+			            <a th:href="@{'/admin/editIngrediente' + '/' + ${ingrediente.id}}" class="btn-ingrediente">
+			                <svg>
+			                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			                </svg>
+			               Modifica
+			            </a>
+			            
+			            
+			            
+			            <div id='delete' th:if="${ingr?.id}==${ingrediente.id}">
+			            	<span class="btn-ingrediente">
+						                <svg>
+						                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+						                </svg>
+						               Cancella 
+				            </span> 
+				            	<div  class="tooltip">
+					            	
+									<div id='alert'>!</div>
+								
+                        			<span class="tooltiptext" id='tooltiptext1'>L'ingrediente <span th:text="${ingrediente.nome}">/</span> non puo' essere eliminato perchè è presente in un piatto</span>
+                    			</div>
+                    	</div>
+			            <a th:unless="${ingr?.id}==${ingrediente.id}" th:href="@{'/admin/ingredienteDelete' + '/' + ${ingrediente.id}}" class="btn-ingrediente"
+			            th:data-confirm-delete="|Sei sicuro di voler eliminare l'ingrediente ${ingrediente.nome}?|"
+		  				onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
+			                <svg>
+			                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			                </svg>
+			               Cancella
+			            </a>
+		            </div> 
+	        </div>
+		</li>
+	 </ul>
+      
+
+
+</body>
+</html>

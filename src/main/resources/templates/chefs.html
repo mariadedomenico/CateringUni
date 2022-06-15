@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/css/chefs.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+    <header>
+        <div class="title"> CATERING ROMA</div>
+        
+        <nav role="navigation">
+            <ul>
+              <li class='li-navbar'><a th:href="@{'/user/home'}">HOME</a></li>
+              <li class='li-navbar'><a th:href="@{'/user/buffets'}">BUFFET</a>
+                <ul class='dropdown'>
+					<li class='li-navbar' th:each="buffet : ${buffets}">
+					<a th:href="@{'/user/buffet' + '/' + ${buffet.id}}"
+					th:text="${buffet.nome}">Buffet</a>
+					</li>
+				</ul>
+              </li>
+              <li id="chef" class='li-navbar'><a th:href="@{'/user/chefs'}">CHEF</a>
+                <ul class='dropdown'>
+					<li class='li-navbar' th:each="chef : ${allChef}">
+					<a th:href="@{'/user/chef' + '/' + ${chef.id}}"
+					th:text="${chef.nome} + ' ' + ${chef.cognome}">Chef</a>
+					</li>
+				</ul>
+              </li>
+              <li class='li-navbar'><a th:href="@{'/user/contatti'}">CONTATTI</a>
+              </li>
+              <!-- <div class="animation start-home"></div> -->
+            </ul>
+            
+          </nav>
+        
+    </header>
+    <div>
+     <ul>
+		<li class="li-chef" th:each="chef : ${allChef}">
+			<div class="chef-info">
+        		<div class="chef-box" >
+	            <span th:text="${chef.nome} + ' ' + ${chef.cognome}"></span>
+	            <a th:href="@{'/user/chef' + '/' + ${chef.id}}" class="btn-chef" style="margin-top: 8%;">
+	                <svg>
+	                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+	                </svg>
+	               Scopri di più
+	            </a>
+	        </div>
+		</li>
+	 </ul>
+    </div>
+
+      
+        
+      
+
+      <footer>
+        <div class="info">
+            <div id="info-title">INFORMAZIONI</div>
+            <div class="info-box">
+                <img class="info-img" src="/images/email.png">
+                <div>info@catering.com</div>
+            </div>
+            <div class="info-box">
+                <img class="info-img" src="/images/phone.png">
+                <div>3277834261</div>
+            </div>
+            <div class="info-box">
+                <img class="info-img" src="/images/address.png">
+                <div>Via Catering 70, Roma</div>
+            </div>
+        </div>
+
+
+        <div class="table-box">
+            <table>
+            <tr>
+              <th>ORARI</th>
+            </tr>
+            <tr>
+              <td>Lunedì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Martedì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Mercoledì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Giovedì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Venerdì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Sabato</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+                <td>Domenica</td>
+                <td>09:00-14:00</td>
+            </tr>
+          </table>
+        </div>
+        
+      </footer>
+
+</body>
+</html>

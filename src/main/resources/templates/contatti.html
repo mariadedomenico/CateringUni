@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/css/contatti.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+    <header>
+        <div class="title"> CATERING ROMA</div>
+        <!-- <nav>
+            <a href="#">Home</a>
+            <a href="#">Chef</a>
+            <a href="#">Buffet</a>
+            <a href="#">Contatti</a>
+            
+        </nav> -->
+
+        
+        <nav role="navigation">
+            <ul>
+              <li><a th:href="@{'/user/home'}">HOME</a></li>
+              <li><a th:href="@{'/user/buffets'}">BUFFET</a>
+                <ul>
+					<li th:each="buffet : ${buffets}">
+					<a th:href="@{'/user/buffet' + '/' + ${buffet.id}}"
+					th:text="${buffet.nome}">Buffet</a>
+					</li>
+				</ul>
+              </li>
+              <li><a th:href="@{'/user/chefs'}">CHEF</a>
+                 <ul class='dropdown'>
+					<li class='li-navbar' th:each="chef : ${chefs}">
+					<a th:href="@{'/user/chef' + '/' + ${chef.id}}"
+					th:text="${chef.nome} + ' ' + ${chef.cognome}">Chef</a>
+					</li>
+				</ul>
+              </li>
+              <li id='contatti'><a th:href="@{'/user/contatti'}">CONTATTI</a>
+              </li>
+              <!-- <div class="animation start-home"></div> -->
+            </ul>
+            
+          </nav>
+        
+    </header>
+
+
+        
+       
+<!-- main container -->
+<div class="contatti-container">
+  <!-- image -->
+  <div class="image-container">
+    <img src="/images/antipasti-freddi.jpg">
+  </div>
+  <!-- text -->
+  <form th:action = "@{/user/utente}" method = "post" th:object="${utente}">
+  <div class="text-container">
+    <div id="title-form">INVIACI UN MESSAGGIO!</div>
+    <!-- name input -->
+    <input type="text"  th:field = '*{nome}' placeholder="Name" /><br/>
+    <!-- email input -->
+    <input  type="email"  th:field = '*{email}' placeholder="Email" /><br/>
+    <!-- message input -->
+    <textarea type="text"  th:field = '*{messaggio}' placeholder="Message"></textarea><br/>
+
+    <div>
+      <!-- button -->
+    <button id="submit" type="submit" class="btn-contatti">
+        <svg>
+          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+        </svg>
+      Invia
+    </button>
+    
+    </div>
+  </div>
+  </form>
+</div>
+
+
+<footer>
+  <div class="wrapper">
+    <div class="info-box">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.7013229745817!2d12.466707115106466!3d41.856255179223965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13258a91678ebcb9%3A0x766783b79f6c889b!2sVia%20della%20Vasca%20Navale%2C%2000146%20Roma%20RM!5e0!3m2!1sit!2sit!4v1653515485628!5m2!1sit!2sit" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+    <div class="info">
+      <div id="info-title">INFORMAZIONI</div>
+        <div class="info-box">
+          <img class="info-img" src="/images/email.png">
+          <div>info@catering.com</div>
+        </div>
+      <div class="info-box">
+          <img class="info-img" src="/images/phone.png">
+          <div>3277834261</div>
+      </div>
+      <div class="info-box">
+          <img class="info-img" src="/images/address.png">
+          <div>Via Catering 70, Roma</div>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+
+
+
+  <div class="table-box">
+      <table>
+      <tr>
+        <th>ORARI</th>
+      </tr>
+      <tr>
+        <td>Lunedì</td>
+        <td>09:00-21:00</td>
+      </tr>
+      <tr>
+        <td>Martedì</td>
+        <td>09:00-21:00</td>
+      </tr>
+      <tr>
+        <td>Mercoledì</td>
+        <td>09:00-21:00</td>
+      </tr>
+      <tr>
+        <td>Giovedì</td>
+        <td>09:00-21:00</td>
+      </tr>
+      <tr>
+        <td>Venerdì</td>
+        <td>09:00-21:00</td>
+      </tr>
+      <tr>
+        <td>Sabato</td>
+        <td>09:00-21:00</td>
+      </tr>
+      <tr>
+          <td>Domenica</td>
+          <td>09:00-14:00</td>
+      </tr>
+    </table>
+  </div>
+  
+</footer>
+        
+        
+      
+
+</body>
+</html>
+
+
+
+
+

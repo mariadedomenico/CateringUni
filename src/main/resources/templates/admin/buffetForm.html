@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/admin/buffetForm.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+
+	<nav> 
+		<a th:href="@{/admin/homeAdmin}">Home</a>
+	    <a id='buffet' th:href="@{/admin/buffets}">Buffets</a>
+	    <a th:href="@{/admin/chefs}">Chefs</a>
+	    <a th:href="@{/admin/piatti}">Piatti</a>
+	    <a th:href="@{/admin/ingredienti}">Ingredienti</a>
+	    <a th:href="@{/admin/utenti}">Utenti</a>
+	    <a th:href="@{/admin/logout}"><img id='logout' src='/admin/logout.png'></a>
+	</nav>
+	
+	
+	<div id='title'>
+		<div id='add'>
+		   <a class="btn-buffet">
+		        <svg>
+		          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+		        </svg>
+		       Aggiungi
+		   </a>
+		</div>
+		
+		<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <a th:href="@{/admin/buffets}"><span class="close">&times;</span></a>
+    <div id='dettagli'>
+    
+    	<h2>AGGIUNGI UN NUOVO BUFFET:</h2>
+    	<form th:action = "@{/admin/buffet}" method = "post" th:object="${buffet}" id="sectionForm" enctype="multipart/form-data">
+	  		<div id='error' th:if="${#fields.hasGlobalErrors()}">
+    			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
+  	  		</div>
+			<div>
+				
+				<div class='input-field'>Nome: <input type = 'text' th:field = '*{nome}' id='nome' required/></div>
+				
+				<div class='input-field'>Descrizione: <input type = 'text' th:field = '*{descrizione}' id='descrizione' required/></div>
+				
+				<div class='input-field'>Immagine: <input type = 'file' name="image"  accept="image/png,image/jpeg,image/jpg" id='immagine'/></div>
+				
+			</div>
+			<div id='elenchi'>
+			
+				<fieldset class='input-field scroll'>
+				 	<legend>Chef</legend>
+					<div class='elenco'>
+						<div  th:each="chef : ${chefs}" class='dettagli_elenco'>
+							<input type = 'radio' th:field = '*{chef}'  
+				            id='chef'
+				            
+				            th:value="${chef.id}"
+				            required/>
+				            <label for='chef' th:text="${chef.nome} + ' ' + ${chef.cognome}"></label>
+			            </div>
+			        </div>
+				</fieldset>
+				
+				
+				
+				<fieldset class='input-field scroll'> 
+					<legend>Piatti</legend>
+					<div class='elenco'>
+						<div th:each="piatto : ${piatti}" class='dettagli_elenco'>
+							<input type = 'checkbox' th:field = '*{piatti}'  
+							id='piatto'
+				            th:value="${piatto.id}"/>
+				            <label for='piatto' th:text="${piatto.nome}"></label>
+						</div>
+			        </div>
+				</fieldset>
+				
+				
+				
+			</div>
+			<script src="/admin/checkbox.js"> </script>
+			<div class='btn'><button type = 'submit'>Salva</button></div>
+		</form>
+    </div>
+  </div>
+
+</div>
+
+<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+	
+	// Get the button that opens the modal
+	var btn = document.getElementById("add");
+	
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+	
+	
+	  modal.style.display = "block";
+	
+	
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+	
+	// When the user clicks anywhere outside of the modal, close it
+	/*window.onclick = function(event) {
+	  if (event.target == modal) {
+	    modal.style.display = "none";
+	  }
+	}*/
+</script>
+		
+	    <h1>BUFFETS:</h1>
+    
+	</div>
+     
+     <ul>
+		<li th:each="buffet : ${buffetsAdmin}">
+			
+        		<div class="buffet-box" >
+        		
+        			<div id='info'> 
+        			
+        				<div class="tooltip"> <img src="/admin/info.png"/>
+	  						<div class="tooltiptext">
+			            		
+			            		<div th:text="${buffet.descrizione}"></div>
+			            		<div th:text="${buffet.img}"></div>
+			            		<!--<span th:if="${buffet.chef}!=null" th:text="${buffet.chef.nome} + ' ' + ${buffet.chef.cognome}"></span>-->
+	  							
+	  						</div>
+						</div>
+		            
+		            	<span th:text="${buffet.nome}"></span>
+        			</div>
+		            
+		            <div id='btn-wrapper'>
+			            <a th:href="@{'/admin/editBuffet' + '/' + ${buffet.id}}" class="btn-buffet">
+			                <svg>
+			                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			                </svg>
+			               Modifica
+			            </a>
+			            <a th:href="@{'/admin/buffetDelete' + '/' + ${buffet.id}}" class="btn-buffet"
+			            th:data-confirm-delete="|Sei sicuro di voler eliminare il buffet ${buffet.nome}?|"
+		  				onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
+			                <svg>
+			                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			                </svg>
+			               Cancella
+			            </a>
+	            	</div>
+        		</div>
+		</li>
+	 </ul>
+    </div>
+   <!-- <a th:href="@{/admin/homeAdmin}" class="btn-buffet">
+            <svg>
+              <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+            </svg>
+           Home
+	</a> -->
+
+      
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/admin/piatti.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+
+	<nav> 
+		<a th:href="@{/admin/homeAdmin}">Home</a>
+	    <a th:href="@{/admin/buffets}">Buffets</a>
+	    <a th:href="@{/admin/chefs}">Chefs</a>
+	    <a id='piatto' th:href="@{/admin/piatti}">Piatti</a>
+	    <a th:href="@{/admin/ingredienti}">Ingredienti</a>
+	    <a th:href="@{/admin/utenti}">Utenti</a>
+	    <a th:href="@{/admin/logout}"><img id='logout' src='/admin/logout.png'></a>
+	</nav>
+
+	<div id='title'>
+		<div id='add'>
+		   <a th:href="@{'/admin/piattoForm'}" class="btn-piatto">
+		        <svg>
+		          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+		        </svg>
+		       Aggiungi
+		   </a>
+		</div>
+		<h1>PIATTI:</h1>
+	</div>
+	
+	
+     <ul>
+		<li th:each="piatto : ${piattiAdmin}">
+        		<div class="piatto-box" >
+        			<div id='info'>
+        				<div class="tooltip"> <img src="/admin/info.png"/>
+	  						<div class="tooltiptext">
+			            		
+			            		<div><span>Descrizione: </span><span th:text="${piatto.descrizione}"></span></div>
+			            		<div id='view'><a th:href="@{'/admin/piatto' + '/' + ${piatto.id}}">Vedi altro</a></div>
+  							
+  							</div>
+						</div>
+		            	<span th:text="${piatto.nome}">nome</span>
+        			</div>
+        			
+		            <!--<img class="buffet-img" th:src="${buffet.img}">
+		            <span th:text="${buffet.descrizione}"></span>-->
+		            <div id='btn-wrapper'>
+			            <a th:href="@{'/admin/editPiatto' + '/' + ${piatto.id}}" class="btn-piatto">
+			                <svg>
+			                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			                </svg>
+			               Modifica
+			            </a>
+			            <div id='delete' th:if="${piat?.id}==${piatto.id}">
+			            	<span class="btn-piatto">
+						                <svg>
+						                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+						                </svg>
+						               Cancella 
+				            </span> 
+				            	<div  class="tooltip">
+					            	
+									<div id='alert'>!</div>
+								
+                        			<span class="tooltiptext" id='tooltiptext1'>Il piatto <span th:text="${piatto.nome}">/</span> non puo' essere eliminato perchè è presente in un buffet</span>
+                    			</div>
+                    	</div>
+			            <a th:unless="${piat?.id}==${piatto.id}" th:href="@{'/admin/piattoDelete' + '/' + ${piatto.id}}" class="btn-piatto"
+			            th:data-confirm-delete="|Sei sicuro di voler eliminare il piatto ${piatto.nome}?|"
+		  				onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false">
+			                <svg>
+			                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+			                </svg>
+			               Cancella
+			            </a>
+		            </div>
+	        </div>
+		</li>
+	 </ul>
+ 
+
+
+</body>
+</html>

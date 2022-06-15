@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/css/buffetSingle.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+    <header>
+        <div class="title"> CATERING ROMA</div>
+        
+        <nav role="navigation">
+            <ul>
+              <li class='li-navbar'><a th:href="@{'/user/home'}">HOME</a></li>
+              <li class='li-navbar' id='buffet'><a th:href="@{'/user/buffets'}">BUFFET</a>
+                <ul class='dropdown'>
+					<li class='li-navbar' th:each="buffet : ${buffets}">
+					<a th:href="@{'/user/buffet' + '/' + ${buffet.id}}"
+					th:text="${buffet.nome}">Buffet</a>
+					</li>
+				</ul>
+              </li>
+              <li class='li-navbar'><a th:href="@{'/user/chefs'}">CHEF</a>
+                <ul class='dropdown'>
+					<li class='li-navbar' th:each="chef : ${chefs}">
+					<a th:href="@{'/user/chef' + '/' + ${chef.id}}"
+					th:text="${chef.nome} + ' ' + ${chef.cognome}">Chef</a>
+					</li>
+				</ul>
+              </li>
+              <li class='li-navbar'><a th:href="@{'/user/contatti'}">CONTATTI</a>
+              </li>
+              <!-- <div class="animation start-home"></div> -->
+            </ul>
+            
+          </nav>
+        
+    </header>
+    
+    
+    
+    <h2 th:text="${buffet.nome}"></h2>
+    <div>
+    	<div th:if="${assente}" id='voto-label'>Ancora nessun voto...</div>
+    	<div th:unless="${assente}" id="voto-label"><span>Voto: </span><span  th:text="${buffet.media}"></span><span>/5</span></div>
+    </div>
+    
+	<div id="wrapper">
+			<div id="elenco">
+				<ul id='elenco-piatti'>
+					<div th:each="piatto : ${buffet.piatti}" id='piatto-detail'>
+						<a th:href="@{'/user/piatto' + '/' + ${piatto.id} + '/' + ${buffet.id}}" th:text="${piatto.nome}"></a>
+					</div>
+				</ul>
+			</div>
+			<div id="select">
+				<h3>SELEZIONA UN PIATTO...</h3>
+			</div>
+		
+		</div>
+		
+		
+		
+		<div class="card" id="intro">
+        
+        <h3>Vota questo buffet</h3>
+        <p>
+            Facci sapere che ne pensi, così da poter migliorare!
+        </p>
+        <div th:if="${votato}">Hai già votato per questo buffet!</div>
+	    <div th:unless="${votato}"></div>
+        <form th:action = "@{'/user/votazione' + '/' + ${buffet.id}}" method = "post" th:object="${utente}">
+        	<div id='email-container'><input  id='email' type="text"  th:field = '*{email}' placeholder="Email" required/></div>
+	        
+	        
+	        <fieldset class="rating">
+			    <input type="radio" th:field = '*{voto}' id="star5" name="rating" value="5"/>
+			    <label for="star5">5 stars</label>
+			    <input type="radio" th:field = '*{voto}' id="star4" name="rating" value="4" />
+			    <label for="star4">4 stars</label>
+			    <input type="radio" th:field = '*{voto}' id="star3" name="rating" value="3" />
+			    <label for="star3">3 stars</label>
+			    <input type="radio" th:field = '*{voto}' id="star2" name="rating" value="2" />
+			    <label for="star2">2 stars</label>
+			    <input type="radio" th:field = '*{voto}' id="star1" name="rating" value="1" />
+			    <label for="star1">1 star</label>
+			</fieldset>
+	        <button type='submit'>Submit</button>
+        </form>
+    </div>
+    <div class="card" id="result">
+       
+        <p class="ss"><span id="selected"></span></p>
+        <h3 id='fine'>Votazione andata a buon fine</h3>
+        <p id='grazie'>
+            Grazie per il tuo tempo!
+        </p>
+    </div>
+
+    <script>
+    var result = document.getElementById("result");
+    var intro = document.getElementById("intro");
+    var opt = document.querySelectorAll(".option");
+    var selected;
+
+    opt.forEach(function (el) {
+        el.onclick = function () {
+            selected = this.innerHTML;
+        };
+    });
+
+    function submit() {
+        result.style.display = "flex";
+        intro.style.display = "none";
+        document.getElementById("selected").innerHTML = `You selcted ${
+            selected || "0"
+        } out of 5`;
+    }
+    </script>
+
+      
+        
+      
+
+      <footer>
+        <div class="info">
+            <div id="info-title">INFORMAZIONI</div>
+            <div class="info-box">
+                <img class="info-img" src="/images/email.png">
+                <div>info@catering.com</div>
+            </div>
+            <div class="info-box">
+                <img class="info-img" src="/images/phone.png">
+                <div>3277834261</div>
+            </div>
+            <div class="info-box">
+                <img class="info-img" src="/images/address.png">
+                <div>Via Catering 70, Roma</div>
+            </div>
+        </div>
+
+
+        <div class="table-box">
+            <table>
+            <tr>
+              <th>ORARI</th>
+            </tr>
+            <tr>
+              <td>Lunedì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Martedì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Mercoledì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Giovedì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Venerdì</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+              <td>Sabato</td>
+              <td>09:00-21:00</td>
+            </tr>
+            <tr>
+                <td>Domenica</td>
+                <td>09:00-14:00</td>
+            </tr>
+          </table>
+        </div>
+        
+      </footer>
+
+</body>
+</html>

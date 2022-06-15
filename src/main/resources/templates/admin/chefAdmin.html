@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="chef.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+    
+    <div>
+     <div>
+		<span th:text="${chef.nome}">chef</span>
+	 <div>
+		<span th:text="${chef.cognome}">cognome</span>
+	</div>
+	<div>
+		 <ul>
+			<li th:each="buffet : ${chef.buffet}">
+			<a th:href="@{'/buffet' + '/' + ${buffet.id}}"
+			th:text="${buffet.nome}">buffet</a>
+			</li>
+		</ul>
+	</div>
+	</div>
+    </div>
+    <a th:href="@{/admin/homeAdmin}" class="btn-chef">
+        <svg>
+          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+        </svg>
+       Home
+	</a>
+
+
+</body>
+</html>

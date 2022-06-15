@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="buffetSingle.css" />
+	<meta charset="UTF-8" />
+	<title>catering</title>
+</head>
+<body>
+
+    
+    <div>
+     <div>
+		<span th:text="${ingrediente.nome}">ingrediente</span>
+	 <div>
+		<span th:text="${ingrediente.descrizione}">descrizione</span>
+	</div>
+	<div>
+		<span th:src="${ingrediente.origine}">origine</span>
+	</div>
+	
+	<a th:href="@{/admin/homeAdmin}" class="btn-ingrediente">
+        <svg>
+          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+        </svg>
+       Home
+	</a>
+	
+
+</body>
+</html>
