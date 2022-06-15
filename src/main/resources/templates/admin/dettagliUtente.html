@@ -29,23 +29,23 @@
 		
 		<div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <a th:href="@{/admin/utenti}"><span class="close">&times;</span></a>
-    <div id='dettagli'>
-    
-    	<h2>DETTAGLI:</h2>
-    	
-			
-				<fieldset class='input-field'>
-				 	<legend>Messaggio</legend>
-					<div th:text="${utente.messaggio}"></div>
-				</fieldset>
+			<!-- Modal content -->
+			<div class="modal-content">
+				<a th:href="@{/admin/utenti}"><span class="close">&times;</span></a>
+				<div id='dettagli'>
 				
-    </div>
-  </div>
+					<h2>DETTAGLI:</h2>
+					
+						
+							<fieldset class='input-field'>
+								<legend>Messaggio</legend>
+								<div th:text="${utente.messaggio}"></div>
+							</fieldset>
+							
+				</div>
+			</div>
 
-</div>
+		</div>
 
 <script>
 	// Get the modal
@@ -75,7 +75,7 @@
 </script>
 		
 	   <h1>UTENTI:</h1>
-    
+	</div>
      <ul>
 		<li th:each="utente : ${utenti}">
 			
