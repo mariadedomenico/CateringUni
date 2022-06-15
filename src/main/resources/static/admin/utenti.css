@@ -45,13 +45,13 @@ nav{
 
 #sort-container{
     display: flex;
-    margin-left: 27%;
+    margin-left: 56%;
     width: 100%;
     align-items: center;
 }
 
-#sort-container a:first-child img{
-    margin-left: 40%;
+#img-asc{
+    margin-left: 30%;
 }
 
 h4{
