@@ -35,6 +35,7 @@ public class Buffet {
 	private List<Piatto> piatti;
 	
 	public Buffet() {
+		this.piatti = new LinkedList<Piatto>();
 	}
 
 	public Buffet(String nome, String descrizione, Chef chef, String img, List<Piatto> piatti, float media) {

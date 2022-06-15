@@ -48,9 +48,6 @@ public class BuffetController {
 	@PostMapping("/admin/buffet")
 	public String addBuffet(@Valid @ModelAttribute("buffet") Buffet buffet, BindingResult bindingResult, Model model, @RequestParam("image") MultipartFile multipartFile) throws IOException {
 	    this.buffetValidator.validate(buffet, bindingResult);
-	    for(ObjectError e : bindingResult.getAllErrors()) {
-	    	System.out.println(e.getCode());
-	    }
 	    
 		if(!bindingResult.hasErrors()) {
 		
@@ -184,8 +181,6 @@ public class BuffetController {
 	
 	@GetMapping("/admin/buffetForm") 
 	public String addBuffet(Model model) {
-		Chef chef = this.chefService.findAll().get(0);
-		model.addAttribute("chefDefault", chef);
 		model.addAttribute("buffetsAdmin", this.buffetService.findAll());
 		model.addAttribute("buffet", new Buffet());
 	    model.addAttribute("chefs", this.chefService.findAll());
