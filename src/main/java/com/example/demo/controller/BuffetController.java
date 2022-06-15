@@ -199,4 +199,24 @@ public class BuffetController {
 	    return "admin/buffetsAdmin.html";
 	}
 
+	@GetMapping("/admin/sort")
+	public String sortBuffet(Model model){
+		List<Buffet> buffets = this.buffetService.findAllOrderByNomeAsc();
+		model.addAttribute("buffetsAdmin", buffets);
+		//model.addAttribute("buffet", new Buffet());
+	    model.addAttribute("chefs", this.chefService.findAll());
+	    model.addAttribute("piatti", this.piattoService.findAll());
+		return "admin/buffetsAdmin.html";
+	}
+	
+	@GetMapping("/admin/reverse")
+	public String reverseBuffet(Model model){
+		List<Buffet> buffets = this.buffetService.findAllOrderByNomeDesc();
+		model.addAttribute("buffetsAdmin", buffets);
+		//model.addAttribute("buffet", new Buffet());
+	    model.addAttribute("chefs", this.chefService.findAll());
+	    model.addAttribute("piatti", this.piattoService.findAll());
+		return "admin/buffetsAdmin.html";
+	}
+
 }

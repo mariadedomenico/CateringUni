@@ -58,5 +58,12 @@ public class BuffetService {
 		return this.buffetRepository.existsByNomeAndDescrizione(buffet.getNome(), buffet.getDescrizione());
 	}
 
+	public List<Buffet> findAllOrderByNomeAsc() {
+		return this.buffetRepository.findAllByOrderByNomeAsc();
+	}
+	
+	public List<Buffet> findAllOrderByNomeDesc() {
+		return this.buffetRepository.findAllByOrderByNomeDesc();
+	}
 	
 }

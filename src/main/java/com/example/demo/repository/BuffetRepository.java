@@ -15,6 +15,9 @@ public interface BuffetRepository extends CrudRepository<Buffet, Long> {
 
 	boolean existsByNomeAndDescrizione(String nome, String descrizione);
 	
+	List<Buffet> findAllByOrderByNomeAsc();
+	
+	List<Buffet> findAllByOrderByNomeDesc();
 	
 
 }
