@@ -195,9 +195,11 @@
         justify-content: space-evenly;
       }
     
-
       li a {
         color: black;
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
       }
       
       li:hover,
@@ -380,7 +382,7 @@
       
       tr {
         background-color: black;
-        opacity: 40%;
+        opacity: 70%;
       }
 
       .table-box{
@@ -409,4 +411,13 @@
       .info-img {
           width: 18%;
           margin-right: 5%;
+      }
+
+      login-btn{
+        width: 97%;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 5;
+        position: relative;
+        top: 5%;
       }

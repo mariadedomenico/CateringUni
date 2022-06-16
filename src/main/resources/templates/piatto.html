@@ -7,6 +7,7 @@
 </head>
 <body>
     <header>
+      <div id="login-btn"><a th:href="@{/login}"><img src='/images/home.png'/></a></div>
         <div class="title"> CATERING ROMA</div>
         
         <nav role="navigation">
@@ -30,7 +31,7 @@
               </li>
               <li class='li-navbar'><a th:href="@{'/user/contatti'}">CONTATTI</a>
               </li>
-              <!-- <div class="animation start-home"></div> -->
+              
             </ul>
             
           </nav>
@@ -59,14 +60,7 @@
 			<div id='ingredienti-wrapper'>
 				
 				<div th:each="ingrediente : ${piattoSelezionato.ingredienti}">
-					<!--  <div class="tooltip"> <h4 th:text="${ingrediente.nome}"></h4>
-	  						<div class="tooltiptext"> 
-			            		
-			            		<div><span>Descrizione: </span><span th:text="${ingrediente.descrizione}"></span></div>
-			            		<div><span>Origine: </span><span th:text="${ingrediente.origine}"></span></div>
-
-	  						</div>
-						</div> -->
+					
 						
 						<div class="dropdown1">
 						  <h4 th:text="${ingrediente.nome}"></h4>
@@ -82,21 +76,7 @@
 			</div>
 			</div>
 			
-			<!--  <div >
 			
-				
-				      <div th:each="ingrediente : ${piattoSelezionato.ingredienti}" class="frame">
-				      	
-				        	
-				        		<h2 th:text="${ingrediente.nome}"></h2>
-						            <p class="desc">
-						            	<div th:text="${ingrediente.descrizione}"></div>
-						            	<div th:text="${ingrediente.origine}"></div>
-						            </p>
-
-				      </div>
-
-			</div>	-->	
 	</div>
 	
 	<div class="card" id="intro">

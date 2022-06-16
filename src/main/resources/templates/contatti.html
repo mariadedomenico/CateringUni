@@ -7,14 +7,9 @@
 </head>
 <body>
     <header>
+      <div id="login-btn"><a th:href="@{/login}"><img src='/images/home.png'/></a></div>
         <div class="title"> CATERING ROMA</div>
-        <!-- <nav>
-            <a href="#">Home</a>
-            <a href="#">Chef</a>
-            <a href="#">Buffet</a>
-            <a href="#">Contatti</a>
-            
-        </nav> -->
+        
 
         
         <nav role="navigation">
@@ -38,7 +33,7 @@
               </li>
               <li id='contatti'><a th:href="@{'/user/contatti'}">CONTATTI</a>
               </li>
-              <!-- <div class="animation start-home"></div> -->
+              
             </ul>
             
           </nav>
@@ -48,25 +43,25 @@
 
         
        
-<!-- main container -->
+
 <div class="contatti-container">
-  <!-- image -->
+  
   <div class="image-container">
     <img src="/images/antipasti-freddi.jpg">
   </div>
-  <!-- text -->
+  
   <form th:action = "@{/user/utente}" method = "post" th:object="${utente}">
   <div class="text-container">
     <div id="title-form">INVIACI UN MESSAGGIO!</div>
-    <!-- name input -->
+    
     <input type="text"  th:field = '*{nome}' placeholder="Name" /><br/>
-    <!-- email input -->
+    
     <input  type="email"  th:field = '*{email}' placeholder="Email" required/><br/>
-    <!-- message input -->
+    
     <textarea type="text"  th:field = '*{messaggio}' placeholder="Message"></textarea><br/>
 
     <div>
-      <!-- button -->
+      
     <button id="submit" type="submit">
       Invia
     </button>

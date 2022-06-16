@@ -63,6 +63,8 @@
       li a {
         color: black;
         text-decoration: none;
+        width: 100%;
+        text-align: center;
       }
       
       li:hover,
@@ -123,7 +125,7 @@ input:first-of-type
   margin-top:35px;
 }
 input, textarea {
-  font-size: 10px;
+  font-size: 13px;
   padding: 15px 10px 10px;
 
   border: 1px solid black;
@@ -213,7 +215,7 @@ input, textarea {
 	
 	tr {
 	  background-color: black;
-	  opacity: 40%;
+	  opacity: 70%;
 	}
 	
 	.table-box{
@@ -263,4 +265,13 @@ input, textarea {
     background-color: #fbe3d4;
     margin-top: 5%;
     cursor: pointer;
+  }
+
+  login-btn{
+    width: 97%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5;
+    position: relative;
+    top: 5%;
   }

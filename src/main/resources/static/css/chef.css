@@ -77,6 +77,9 @@
 
       li a {
         color: black;
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
       }
       
       .li-navbar:hover,
@@ -172,7 +175,7 @@
       
       tr {
         background-color: black;
-        opacity: 40%;
+        opacity: 70%;
       }
 
       .table-box{
@@ -276,4 +279,13 @@
 #noBuffet{
   text-align: center;
   margin-top: 4%;
+}
+
+login-btn{
+  width: 97%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5;
+  position: relative;
+  top: 5%;
 }
