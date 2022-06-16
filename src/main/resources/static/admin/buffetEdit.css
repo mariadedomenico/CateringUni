@@ -269,12 +269,16 @@ h2{
 }
 
 #immagine{
-	margin-left: 6.5%;
+	
 	border-radius: 0;
 }
 
+#span-immagine {
+    margin-left: 7%;
+}
+
 #nome{
-	margin-left:13.5%;
+	margin-left:16.5%;
 }
 
 #dettagli{
@@ -379,4 +383,8 @@ input:hover {
 #error p {
     color: darksalmon;
     margin-top: 0;
+}
+
+#error {
+	text-align:center;
 }
