@@ -23,16 +23,17 @@ public class UtenteService {
 	}
 	
 	public Utente findById(Long id) {
-		return utenteRepository.findById(id).get();
+		return this.utenteRepository.findById(id).get();
 	}
 	
 	public List<Utente> findAll() {
 		List<Utente> utenti = new ArrayList<Utente>();
-		for(Utente u : utenteRepository.findAll()) {
+		for(Utente u : this.utenteRepository.findAll()) {
 			utenti.add(u);
 		}
 		return utenti;
 	}
+
 	public boolean alreadyExistsByEmail(Utente utente) {
 		return this.utenteRepository.existsByEmail(utente.getEmail());
 	}

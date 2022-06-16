@@ -9,7 +9,6 @@ import com.example.demo.model.Piatto;
 
 public interface PiattoRepository extends CrudRepository<Piatto, Long> {
 
-	Long countByNomeAndDescrizione(String nome, String descrizione);
 	boolean existsByNomeAndDescrizione(String nome, String descrizione);
 	List<Piatto> findAllByOrderByNomeAsc();
 	List<Piatto> findAllByOrderByNomeDesc();

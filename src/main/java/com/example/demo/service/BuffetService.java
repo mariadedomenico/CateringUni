@@ -20,7 +20,7 @@ public class BuffetService {
 
 	@Transactional
 	public void save(Buffet buffet) {
-		buffetRepository.save(buffet);
+		this.buffetRepository.save(buffet);
 	}
 
 	public Buffet findById(Long id) {
@@ -29,29 +29,18 @@ public class BuffetService {
 
 	public List<Buffet> findAll() {
 		List<Buffet> buffet = new ArrayList<Buffet>();
-		for(Buffet b : buffetRepository.findAll()) {
+		for(Buffet b : this.buffetRepository.findAll()) {
 			buffet.add(b);
 		}
 		return buffet;
 	}
 
-	public boolean alreadyExists(Buffet buffet) {
-		return this.buffetRepository.existsById(buffet.getId());
-	}
+	
 
 	@Transactional
 	public void deleteById(Long id) {
 		this.buffetRepository.deleteById(id);
 		
-	}
-
-	public boolean alreadyExistsByNome(Buffet buffet) {
-
-		return this.buffetRepository.existsByNome(buffet.getNome());
-	}
-
-	public boolean alreadyExistsByNomeAndDescrizioneAndImg(Buffet buffet) {
-		return this.buffetRepository.existsByNomeAndDescrizioneAndImg(buffet.getNome(), buffet.getDescrizione(), buffet.getImg());
 	}
 
 	public boolean alreadyExistsByNomeAndDescrizione(Buffet buffet) {

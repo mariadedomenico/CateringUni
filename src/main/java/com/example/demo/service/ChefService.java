@@ -31,15 +31,13 @@ public class ChefService {
 	
 	public List<Chef> findAll() {
 		List<Chef> chefs = new ArrayList<Chef>();
-		for(Chef c : chefRepository.findAll()) {
+		for(Chef c : this.chefRepository.findAll()) {
 			chefs.add(c);
 		}
 		return chefs;
 	}
 	
-	public boolean alreadyExists(Chef chef) {
-		return this.chefRepository.existsById(chef.getId());
-	}
+	
 
 	@Transactional
 	public void deleteById(Long id) {
@@ -48,7 +46,6 @@ public class ChefService {
 	}
 
 	public boolean alreadyExistsByNomeAndCognomeAndNazionalita(Chef chef) {
-		// TODO Auto-generated method stub
 		return this.chefRepository.existsByNomeAndCognomeAndNazionalita(chef.getNome(), chef.getCognome(), chef.getNazionalita());
 	}
 

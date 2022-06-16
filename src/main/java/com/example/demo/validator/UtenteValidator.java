@@ -17,13 +17,13 @@ public class UtenteValidator implements Validator {
 	
 	@Override
 	public boolean supports(Class<?> uClass) {
-		// TODO Auto-generated method stub
+		
 		return Piatto.class.equals(uClass);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
+		
 		if(this.utenteService.alreadyExistsByEmail((Utente)target)) {
 			errors.reject("utente.duplicato");
 		}

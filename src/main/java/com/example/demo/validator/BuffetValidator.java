@@ -23,7 +23,7 @@ public class BuffetValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
-		if(this.buffetService.alreadyExistsByNome((Buffet)target)) {
+		if(this.buffetService.alreadyExistsByNomeAndDescrizione((Buffet)target)) {
 			errors.reject("buffet.duplicato");
 		}
 		

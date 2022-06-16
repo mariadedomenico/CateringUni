@@ -29,7 +29,6 @@ public class HomeController {
 	public String getChefs(Model model) {
 		model.addAttribute("chefs", this.chefService.findAll());
 		model.addAttribute("buffets", this.buffetService.findAll());
-//		model.addAttribute("piatti", this.piattoService.findAll());
 		return "home.html";
 	}
 	

@@ -17,13 +17,13 @@ public class IngredienteValidator implements Validator {
 	
 	@Override
 	public boolean supports(Class<?> iClass) {
-		// TODO Auto-generated method stub
+		
 		return Ingrediente.class.equals(iClass);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
+		
 		if(this.ingredienteService.alreadyExistsByNomeAndDescrizioneAndOrigine((Ingrediente)target)) {
 			errors.reject("ingrediente.duplicato");
 		}

@@ -31,11 +31,12 @@ public class IngredienteController {
 	
 	
 	@PostMapping("/admin/ingrediente")
-	public String addPersona(@Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult, Model model) {
+	public String addIngrediente(@Valid @ModelAttribute("ingrediente") Ingrediente ingrediente, BindingResult bindingResult, Model model) {
+		
 		this.ingredienteValidator.validate(ingrediente, bindingResult);
 		if(!bindingResult.hasErrors()) {
-			this.ingredienteService.save(ingrediente);
 			
+			this.ingredienteService.save(ingrediente);
 			return "redirect:/admin/ingredienti";
 		}
 		model.addAttribute("ingredientiAdmin", this.ingredienteService.findAll());
@@ -43,15 +44,15 @@ public class IngredienteController {
 	}
 	
 	@PostMapping("/admin/ingrediente/{id}")
-	public String editBuffet(@Valid @ModelAttribute("ingredienteV") Ingrediente ingrediente, @PathVariable("id") Long id, BindingResult bindingResult, Model model) {
+	public String editIngrediente(@Valid @ModelAttribute("ingredienteV") Ingrediente ingrediente, @PathVariable("id") Long id, BindingResult bindingResult, Model model) {
 		
 		this.ingredienteValidator.validate(ingrediente, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			
 			this.ingredienteService.save(ingrediente);
-			
 			return "redirect:/admin/ingredienti";
 		}
+
 		model.addAttribute("ingredientiAdmin", this.ingredienteService.findAll());
 		return "admin/editIngrediente.html";
 	}
@@ -85,7 +86,6 @@ public class IngredienteController {
 	public String editIngredienteAdmin(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("ingredienteV", this.ingredienteService.findById(id));
 		model.addAttribute("ingredientiAdmin", this.ingredienteService.findAll());
-//		model.addAttribute("ingrediente", new Ingrediente());
 	    return "admin/editIngrediente.html";
 	}
 	
@@ -99,6 +99,7 @@ public class IngredienteController {
 	
 	@GetMapping("/admin/ingredienteDelete/{id}")
     public String deleteIngrediente(@PathVariable Long id, Model model) {
+
         boolean presenteInPiatto = false;
         Ingrediente ingrediente = this.ingredienteService.findById(id);
         for(Piatto p : this.piattoService.findAll()) {
@@ -125,14 +126,14 @@ public class IngredienteController {
     }
 
 	@GetMapping("/admin/sortIngrediente")
-	public String sortBuffet(Model model){
+	public String sortIngrediente(Model model){
 		
 		model.addAttribute("ingredientiAdmin", this.ingredienteService.findAllOrderByNomeAsc());
 		return "admin/ingredientiAdmin.html";
 	}
 	
 	@GetMapping("/admin/reverseIngrediente")
-	public String reverseBuffet(Model model){
+	public String reverseIngrediente(Model model){
 		
 		model.addAttribute("ingredientiAdmin", this.ingredienteService.findAllOrderByNomeDesc());
 		return "admin/ingredientiAdmin.html";

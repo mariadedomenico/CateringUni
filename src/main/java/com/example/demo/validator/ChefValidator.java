@@ -16,13 +16,13 @@ public class ChefValidator implements Validator {
 	
 	@Override
 	public boolean supports(Class<?> cClass) {
-		// TODO Auto-generated method stub
+		
 		return Chef.class.equals(cClass);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
+		
 		if(this.chefService.alreadyExistsByNomeAndCognomeAndNazionalita((Chef)target)) {
 			errors.reject("chef.duplicato");
 		}

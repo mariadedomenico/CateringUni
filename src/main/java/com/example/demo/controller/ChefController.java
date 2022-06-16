@@ -26,9 +26,6 @@ public class ChefController {
 	@Autowired 
 	private BuffetService buffetService;
 	
-	/*convenzione: usiamo metodi get per op di lettura e metodi post per scrittura
-	  abbiamo classi di dominio e associamo path a queste*/
-
 	
 	@PostMapping("/admin/chef")
 	public String addChef(@Valid @ModelAttribute("chef") Chef chef, BindingResult bindingResult, Model model) {
@@ -46,15 +43,14 @@ public class ChefController {
 	@PostMapping("/admin/chef/{id}")
 	public String editChef(@Valid @ModelAttribute("chefV") Chef chef, @PathVariable("id") Long id, BindingResult bindingResult, Model model) {
 		
-
-		if(true) {
+		this.chefValidator.validate(chef, bindingResult);
+		if(!bindingResult.hasErrors()) {
 			
 			this.chefService.save(chef);
-			//model.addAttribute("chef", chef);
-			model.addAttribute("chefsAdmin", this.chefService.findAll());
-			return "admin/chefsAdmin.html";
+			return "redirect:/admin/chefs";
 		}
 		
+		model.addAttribute("chefsAdmin", this.chefService.findAll());
 		return "admin/editChef.html";
 	}
 	
@@ -87,11 +83,9 @@ public class ChefController {
 	}
 	
 	@GetMapping("/admin/editChef/{id}") 
-	public String editBuffetAdmin(@PathVariable("id") Long id, Model model) {
+	public String editChefAdmin(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("chefV", this.chefService.findById(id));
-//		model.addAttribute("chef", new Chef());
 		model.addAttribute("chefsAdmin", this.chefService.findAll());
-	    //model.addAttribute("buffets", this.buffetService.findAll());
 	    return "admin/editChef.html";
 	}
 	
@@ -105,14 +99,12 @@ public class ChefController {
 	@GetMapping("/admin/chefDelete/{id}") 
 	public String toDeleteChef(@PathVariable("id") Long id, Model model) {
 	    this.chefService.deleteById(id);
-	    model.addAttribute("chefsAdmin", this.chefService.findAll());
-	    return "admin/chefsAdmin.html";
+	    return "redirect:/admin/chefs";
 	}
 
 	@GetMapping("/admin/sortChef")
 	public String sortChef(Model model){
 		 model.addAttribute("chefsAdmin", this.chefService.findAllOrderByNomeAsc());
-		
 		return "admin/chefsAdmin.html";
 	}
 	

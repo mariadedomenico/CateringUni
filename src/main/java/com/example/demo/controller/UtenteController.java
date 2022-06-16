@@ -71,15 +71,12 @@ public class UtenteController {
 				break;
 			}
 		}
-		//Utente esiste = this.utenteService.findByEmail(utente.getEmail());
-		//Integer voto = utente.getVoto();
-		//esiste.setVoto(utente.getVoto());
-		//esiste.getVoti().put(id, voto);
+		
 		if(votato==false) {
 			utente.getVoti().put(id, utente.getVoto());
 			this.utenteService.save(utente);
 		}
-		//model.addAttribute("votato", votato);
+		
 		return "redirect:/user/buffet/{id}";
 
 	}

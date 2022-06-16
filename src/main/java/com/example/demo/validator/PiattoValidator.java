@@ -16,13 +16,13 @@ public class PiattoValidator implements Validator {
 	
 	@Override
 	public boolean supports(Class<?> pClass) {
-		// TODO Auto-generated method stub
+		
 		return Piatto.class.equals(pClass);
 	}
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		// TODO Auto-generated method stub
+		
 		if(this.piattoService.alreadyExistByNomeAndDescrizione((Piatto)target)) {
 			errors.reject("piatto.duplicato");
 		}

@@ -12,6 +12,5 @@ public interface UtenteRepository extends CrudRepository<Utente, Long> {
 	boolean existsByEmail(String email);
 	Utente[] findAllByEmail(String email);
 	List<Utente> findAllByOrderByEmailAsc();
-	
 	List<Utente> findAllByOrderByEmailDesc();
 }

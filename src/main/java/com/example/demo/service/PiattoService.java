@@ -21,23 +21,21 @@ public class PiattoService {
 	
 	@Transactional
 	public void save(Piatto piatto) {
-		piattoRepository.save(piatto);
+		this.piattoRepository.save(piatto);
 	}
 	
 	public Piatto findById(Long id) {
-		return piattoRepository.findById(id).get();
+		return this.piattoRepository.findById(id).get();
 	}
 	
 	public List<Piatto> findAll() {
 		List<Piatto> piatti = new ArrayList<Piatto>();
-		for(Piatto p : piattoRepository.findAll()) {
+		for(Piatto p : this.piattoRepository.findAll()) {
 			piatti.add(p);
 		}
 		return piatti;
 	}
-	public boolean alreadyExists(Piatto piatto) {
-		return this.piattoRepository.existsById(piatto.getId());
-	}
+
 	
 
 	@Transactional
@@ -46,15 +44,14 @@ public class PiattoService {
 		
 	}
 
-	
 	public boolean alreadyExistByNomeAndDescrizione(Piatto piatto) {
 		
 		return this.piattoRepository.existsByNomeAndDescrizione(piatto.getNome(), piatto.getDescrizione());
 	}
 
-	public Long countByNomeAndDescrizione(String nome, String descrizione) {
-		return this.piattoRepository.countByNomeAndDescrizione(nome, descrizione);
-	}
+	// public Long countByNomeAndDescrizione(String nome, String descrizione) {
+	// 	return this.piattoRepository.countByNomeAndDescrizione(nome, descrizione);
+	// }
 
 	public List<Piatto> findAllOrderByNomeAsc() {
 		return this.piattoRepository.findAllByOrderByNomeAsc();

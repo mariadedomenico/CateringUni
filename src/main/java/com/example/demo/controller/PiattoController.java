@@ -44,28 +44,31 @@ public class PiattoController {
 
 	@PostMapping("/admin/piatto")
 	public String addPiatto(@Valid @ModelAttribute("piatto") Piatto piatto, BindingResult bindingResult, Model model) {
+		
 		this.piattoValidator.validate(piatto, bindingResult);
 
 		if(!bindingResult.hasErrors()) {
 			this.piattoService.save(piatto);
-
 			return "redirect:/admin/piatti";
 		}
 
 		model.addAttribute("piattiAdmin", this.piattoService.findAll());
+		model.addAttribute("ingredienti", this.ingredienteService.findAll());
 		return "admin/piattoForm.html";
 	}
 
 	@PostMapping("/admin/piatto/{id}")
-	public String editBuffet(@Valid @ModelAttribute("piattoV") Piatto piatto, @PathVariable("id") Long id, BindingResult bindingResult, Model model) {
+	public String editPiatto(@Valid @ModelAttribute("piattoV") Piatto piatto, @PathVariable("id") Long id, BindingResult bindingResult, Model model) {
+		
 		this.piattoValidator.validate(piatto, bindingResult);
 		Piatto piattoVecchio = this.piattoService.findById(id);
 		
 		boolean verificato = false;
-		System.out.println("GUARDAAAAAAAAAAA" + piatto.getIngredienti().size());
+		
 		if(piatto.getIngredienti().size() == 0) {
 			verificato = piattoVecchio.getIngredienti().size() > 0;
 		}
+
 		else if(piatto.getIngredienti().size()==piattoVecchio.getIngredienti().size()) {
 			for(Ingrediente ingrediente : piatto.getIngredienti()) {
 				System.out.println(ingrediente.getNome());
@@ -82,7 +85,6 @@ public class PiattoController {
 		if(verificato || !bindingResult.hasErrors()) {
 
 			this.piattoService.save(piatto);
-			System.out.println("GUARDAAAAAAAAAAA" + this.piattoService.findById(id).getIngredienti().size());
 			return "redirect:/admin/piatti";
 		}
 
@@ -139,7 +141,6 @@ public class PiattoController {
 	public String editPiattoAdmin(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("piattoV", this.piattoService.findById(id));
 		model.addAttribute("piattiAdmin", this.piattoService.findAll());
-		//model.addAttribute("piatto", new Piatto());
 		model.addAttribute("ingredienti", this.ingredienteService.findAll());
 		return "admin/editPiatto.html";
 	}
@@ -180,14 +181,14 @@ public class PiattoController {
 	}
 
 	@GetMapping("/admin/sortPiatto")
-	public String sortBuffet(Model model){
+	public String sortPiatto(Model model){
 		
 		model.addAttribute("piattiAdmin", this.piattoService.findAllOrderByNomeAsc());
 		return "admin/piattiAdmin.html";
 	}
 	
 	@GetMapping("/admin/reversePiatto")
-	public String reverseBuffet(Model model){
+	public String reversePiatto(Model model){
 		model.addAttribute("piattiAdmin", this.piattoService.findAllOrderByNomeDesc());
 		return "admin/piattiAdmin.html";
 

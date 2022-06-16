@@ -9,7 +9,6 @@ public interface IngredienteRepository extends CrudRepository<Ingrediente, Long>
 
 	boolean existsByNomeAndDescrizioneAndOrigine(String nome, String descrizione, String origine);
 	List<Ingrediente> findAllByOrderByNomeAsc();
-	
 	List<Ingrediente> findAllByOrderByNomeDesc();
 	
 	

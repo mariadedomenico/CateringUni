@@ -34,9 +34,7 @@ public class IngredienteService {
 		}
 		return ingredienti;
 	}
-	public boolean alreadyExists(Ingrediente ingrediente) {
-		return this.ingredienteRepository.existsById(ingrediente.getId());
-	}
+
 
 	@Transactional
 	public void deleteById(Long id) {
@@ -45,7 +43,6 @@ public class IngredienteService {
 	}
 
 	public boolean alreadyExistsByNomeAndDescrizioneAndOrigine(Ingrediente ingrediente) {
-		// TODO Auto-generated method stub
 		return this.ingredienteRepository.existsByNomeAndDescrizioneAndOrigine(ingrediente.getNome(), ingrediente.getDescrizione(), ingrediente.getOrigine());
 	}
 	

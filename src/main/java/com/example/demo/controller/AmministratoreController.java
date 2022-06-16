@@ -13,28 +13,9 @@ import com.example.demo.validator.BuffetValidator;
 @Controller
 public class AmministratoreController {
 	
-	@Autowired 
-	private BuffetService buffetService;
-	@Autowired
-	private BuffetValidator buffetValidator;
-	@Autowired 
-	private PiattoService piattoService;
-	
-	@Autowired 
-	private ChefService chefService;
-	
-	@GetMapping("/admin/login")
-	public String getLogin(Model model) {
-//		model.addAttribute("buffets", this.buffetService.findAll());
-//		model.addAttribute("chefs", this.chefService.findAll());
-		return "admin/login.html";
-	}
 	
 	@GetMapping("/admin/homeAdmin")
-	public String getHome(Model model) {
-		model.addAttribute("buffetsAdmin", this.buffetService.findAll());
-		model.addAttribute("chefsAdmin", this.chefService.findAll());
-		model.addAttribute("piattiAdmin", this.piattoService.findAll());
+	public String getHome() {
 		return "admin/homeAdmin.html";
 	}
 

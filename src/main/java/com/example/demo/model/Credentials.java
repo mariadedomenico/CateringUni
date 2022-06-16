@@ -66,7 +66,7 @@ public class Credentials {
 		return amministratore;
 	}
 
-	public void setUser(Amministratore amministratore) {
+	public void setAmministratore(Amministratore amministratore) {
 		this.amministratore = amministratore;
 	}
 }
