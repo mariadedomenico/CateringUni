@@ -407,11 +407,3 @@ input{
     font-style: italic;
 }
 
-#login-btn{
-    width: 97%;
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 5;
-    position: relative;
-    top: 5%;
-  }
