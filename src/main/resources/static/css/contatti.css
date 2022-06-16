@@ -262,4 +262,5 @@ input, textarea {
     border-radius: 10px;
     background-color: #fbe3d4;
     margin-top: 5%;
+    cursor: pointer;
   }
