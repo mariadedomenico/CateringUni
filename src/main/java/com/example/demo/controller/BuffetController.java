@@ -100,12 +100,17 @@ public class BuffetController {
 			
 			if(multipartFile.getOriginalFilename() != null) {
 	        	String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-	            buffet.setImg("/images/" + fileName);
-	            this.buffetService.save(buffet);
-	            String uploadDir = "src/main/resources/static/images/";
-	            if(fileName != null && multipartFile != null && !fileName.isEmpty())
-	            	FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+	        	if(fileName != null && multipartFile != null && !fileName.isEmpty()) {
+		            buffet.setImg("/images/" + fileName);
+		            this.buffetService.save(buffet);
+		            String uploadDir = "src/main/resources/static/images/";
+		            if(fileName != null && multipartFile != null && !fileName.isEmpty())
+		            	FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 	        	}
+	        	else {
+	        		buffet.setImg(buffetVecchio.getImg());
+	        	}
+			}
 			
 			this.buffetService.save(buffet);
 			return "redirect:/admin/buffets";
