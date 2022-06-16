@@ -23,6 +23,8 @@ import com.example.demo.validator.CredentialsValidator;
 public class AuthenticationController {
 	
 	@Autowired
+	private CredentialsService credentialsService;
+	@Autowired
 	private AmministratoreValidator amministratoreValidator;
 	@Autowired
 	private CredentialsValidator credentialsValidator;
