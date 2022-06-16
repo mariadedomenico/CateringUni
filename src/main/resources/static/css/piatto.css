@@ -228,7 +228,6 @@ h3 {
     text-align: center;
     width: 100%;
     margin-bottom: 3%;
-    margin-top: 3%;
     border-bottom: 3px black solid;
     padding-bottom: 3%;
 }
@@ -485,3 +484,8 @@ input{
     font-style: italic;
 }
 
+h5 {
+  margin-bottom: 0%;
+  text-align: center;
+  margin-top: 3%;
+}
