@@ -119,7 +119,7 @@ public class BuffetController {
 		model.addAttribute("buffetsAdmin", this.buffetService.findAll());
 		model.addAttribute("chefs", this.chefService.findAll());
 	    model.addAttribute("piatti", this.piattoService.findAll());
-		model.addAttribute("buffetV", this.buffetService.findById(id));
+		model.addAttribute("buffetV", buffetVecchio);
 
 
 		return "admin/editBuffet.html";
