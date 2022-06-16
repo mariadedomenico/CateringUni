@@ -41,6 +41,7 @@
     <h4 th:text="${chef.nazionalita}"></h4>
 		 
 	<div>
+    <div th:if="${chef.buffet.size()}==0" id="noBuffet">Non ci sono buffet disponibili...</div>
      <ul>
 		<li class="li-buffet" th:each="buffet : ${chef.buffet}">
 			<div class="buffet-info">
