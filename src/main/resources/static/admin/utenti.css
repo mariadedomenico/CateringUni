@@ -166,9 +166,10 @@ img {
 }
 
 p{
-	margin-right: 15px;
-	margin-bottom: 0;
-	margin-top:0;
+	margin-right: 35px;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 5%;
 }
 
 #logout {
@@ -180,4 +181,9 @@ p{
     align-items: center;
     flex-direction: row-reverse;
     justify-content: flex-end;
+}
+
+#letto {
+
+    margin-left: 9%;
 }

@@ -96,7 +96,7 @@
 	   					 var email = /*[[${utente.email}]]*/ 'Sebastian';
 					</script>
 					<div id='btn-wrapper'>
-						<div><p th:if="${utente.risposto}">LETTO</p></div>
+						<div id="letto"><p th:if="${utente.risposto}">LETTO</p></div>
 			            <a th:unless="${utente.risposto}" th:href="@{'/admin/rispondi' + '/' + ${utente.id}}" href="#" onclick="javascript:window.location='mailto:'+email+''"  class="btn-utente">
 			                <svg>
 			                  <rect x="0" y="0" fill="none" width="100%" height="100%"/>
