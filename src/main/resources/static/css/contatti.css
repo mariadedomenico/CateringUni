@@ -180,51 +180,6 @@ input, textarea {
   text-align: center;
 }
 
-svg {
-  height: 45px;
-  left: 0;
-  position: absolute;
-  top: 0; 
-  width: 100%; 
-}
-
-rect {
-  fill: #FBE3D4;
-  stroke: black;
-  stroke-width: 5;
-  stroke-dasharray: 422, 0;
-  transition: all 0.35s linear;
-  opacity: 40%;
-}
-
-
-rect:hover{
-    stroke-width: 5;
-    stroke-dasharray: 15, 310;
-    stroke-dashoffset: 48;
-    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .btn-contatti {
-  
-    color: black;
-    font-size: 10px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 21px;
-    font-style: oblique;
-    font-weight: 900;
-    position: relative;
-    margin-top: 3%;
- }
-
- .btn-contatti:hover{
-     font-weight: 900;
-     letter-spacing: 1px;
-   }
 
    #title-form{
      margin-top: 5%;
@@ -304,5 +259,7 @@ rect:hover{
   }
 
   button{
-  	background-color: #FBE3D4;
+    border-radius: 10px;
+    background-color: #fbe3d4;
+    margin-top: 5%;
   }
