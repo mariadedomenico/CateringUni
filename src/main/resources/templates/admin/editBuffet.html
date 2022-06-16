@@ -48,8 +48,8 @@
 				<div class='input-field'>Nome: <input type = 'text' th:name='nome' th:value="${buffetV.nome}" id='nome' required/></div>
 				
 				<div class='input-field'>Descrizione: <input type = 'text' th:name='descrizione' th:value="${buffetV.descrizione}" id='descrizione' required/></div>
-				
-				<div class='input-field'>Immagine: <input type = 'file' name="image" id='immagine' accept="image/png,image/jpeg,image/jpg" required/></div>
+				<div class="input-field">Immagine: <span th:text="${buffet.img}"></span></div>
+				<div class='input-field'><input type = 'file' name="image" id='immagine' accept="image/png,image/jpeg,image/jpg"/></div>
 				
 			</div>
 			<div id='elenchi'>
