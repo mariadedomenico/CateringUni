@@ -493,7 +493,7 @@ h5 {
   margin-top: 3%;
 }
 
-login-btn{
+#login-btn{
   width: 97%;
   display: flex;
   justify-content: flex-start;

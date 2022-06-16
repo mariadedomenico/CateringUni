@@ -261,7 +261,7 @@
 		margin-top:5%;
 }
 
-login-btn{
+#login-btn{
   width: 97%;
   display: flex;
   justify-content: flex-start;

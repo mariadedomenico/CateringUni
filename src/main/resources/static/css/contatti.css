@@ -267,7 +267,7 @@ input, textarea {
     cursor: pointer;
   }
 
-  login-btn{
+  #login-btn{
     width: 97%;
     display: flex;
     justify-content: flex-start;
