@@ -119,7 +119,7 @@ public class BuffetController {
 		model.addAttribute("buffetsAdmin", this.buffetService.findAll());
 		model.addAttribute("chefs", this.chefService.findAll());
 	    model.addAttribute("piatti", this.piattoService.findAll());
-		model.addAttribute("buffetV", buffetVecchio);
+		model.addAttribute("buffetImmagine", buffetVecchio);
 
 
 		return "admin/editBuffet.html";
@@ -187,6 +187,7 @@ public class BuffetController {
 		model.addAttribute("buffetsAdmin", this.buffetService.findAll());
 		model.addAttribute("chefs", this.chefService.findAll());
 	    model.addAttribute("piatti", this.piattoService.findAll());
+		model.addAttribute("buffetImmagine", this.buffetService.findById(id));
 	    return "admin/editBuffet.html";
 	}
 	
