@@ -316,3 +316,9 @@ input:hover {
     cursor: pointer;
 }
 
+
+#error p {
+    color: darksalmon;
+    margin-top: 0;
+}
+

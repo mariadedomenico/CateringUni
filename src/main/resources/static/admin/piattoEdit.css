@@ -372,3 +372,9 @@ input:hover {
 .scroll{
 	overflow: auto;
 }
+
+
+#error p {
+    color: darksalmon;
+    margin-top: 0;
+}

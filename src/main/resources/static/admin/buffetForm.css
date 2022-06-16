@@ -377,3 +377,9 @@ input:hover {
 
   overflow: auto;
 }
+
+
+#error p {
+    color: darksalmon;
+    margin-top: 0;
+}

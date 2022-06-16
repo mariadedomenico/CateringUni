@@ -116,32 +116,32 @@ rect:hover{
 
 #buffet{
 	    
-	background-image: url("https://images.unsplash.com/photo-1563245739-fa3a4a274aad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fGJ1ZmZldHxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60");
+	background-image: url("/admin/buffetAdmin.jpg");
     background-position-y: 25%;
 }
 
 #chef{
 	
-    background-image: url("https://images.unsplash.com/photo-1547197309-082bdc50ce8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1069&q=80");
+    background-image: url("/admin/chefAdmin.jpg");
     background-position-y: 17%;
     background-size: auto;
 }
 
 #piatto{
 	
-    background-image: url("https://images.unsplash.com/photo-1622115837997-90c89ae689f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHJlc3RhdXJhbnR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+    background-image: url("/admin/piattoAdmin.jpg");
 }
 
 #ingrediente{
 	
-    background-image: url("https://images.unsplash.com/photo-1483137140003-ae073b395549?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGluZ3JlZGllbnRzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    background-image: url("/admin/ingredienteAdmin.jpg");
     background-repeat: no-repeat;
     background-position-y: 23%;
 }
 
 #utente{
 	
-    background-image: url("https://images.unsplash.com/photo-1580650487485-7f3a88a39499?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjN8fGNoZWZ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+    background-image: url("/admin/utentiAdmin.jpg");
     background-position: bottom;
     background-position-y: 87%;
 }
